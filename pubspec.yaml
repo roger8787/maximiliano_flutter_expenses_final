@@ -39,6 +39,7 @@ dependencies:
   uuid: ^3.0.7
   intl: ^0.18.1
   d_chart: ^2.2.11
+  fl_chart: ^0.62.0
 
 dev_dependencies:
   flutter_test:
