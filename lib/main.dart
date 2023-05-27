@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         title: 'Flutter Demo',
         theme: ThemeData().copyWith(
           useMaterial3: true,
-          scaffoldBackgroundColor: Colors.orange,
+          // scaffoldBackgroundColor: Colors.orange,
         ),
         home: const MainScreen(),
       ),

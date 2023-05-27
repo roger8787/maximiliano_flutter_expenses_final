@@ -4,16 +4,16 @@ import 'package:testing_functionalities_flutter/models/expense.dart';
 class ExpenseProvider with ChangeNotifier {
   double _suma = 0;
   final List<Expense> _expenses = [
-    // Expense(
-    //     title: 'Food',
-    //     amount: 34.3,
-    //     date: DateTime.now(),
-    //     category: Category.food),
-    // Expense(
-    //     title: 'Shoes',
-    //     amount: 45.3,
-    //     date: DateTime.now(),
-    //     category: Category.leisure),
+    Expense(
+        title: 'Food',
+        amount: 34.3,
+        date: DateTime.now(),
+        category: Category.food),
+    Expense(
+        title: 'Shoes',
+        amount: 45.3,
+        date: DateTime.now(),
+        category: Category.leisure),
   ];
 
   List<Expense> get expenses => [..._expenses];
@@ -25,8 +25,14 @@ class ExpenseProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void deleteExpense({required String id}) {
-    _expenses.removeWhere((expense) => expense.id == id);
+  void undoExpense({required int index, required Expense expense}) {
+    _expenses.insert(index, expense);
+    notifyListeners();
+  }
+
+  void deleteExpense({required Expense expense}) {
+    // _expenses.removeWhere((expense) => expense == expense);
+    _expenses.remove(expense);
     notifyListeners();
   }
 

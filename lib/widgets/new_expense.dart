@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:testing_functionalities_flutter/providers/expenseProvider.dart';
 import '../models/expense.dart';
 
@@ -48,6 +49,11 @@ class _NewExpenseState extends State<NewExpense> {
           context: context,
           builder: (context) {
             return AlertDialog(
+              // shape: RoundedRectangleBorder(
+              //   borderRadius: BorderRadius.all(
+              //     Radius.circular(0.0),
+              //   ),
+              // ),
               title: const Text('Invalid input'),
               content: const Text('please fill the right information'),
               actions: [
@@ -88,9 +94,16 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.fromLTRB(18, 48, 16, 16),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Text('Add your expense',
+                style: GoogleFonts.abel(
+                  fontSize: 25,
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
+                )),
             TextField(
               controller: _titleController,
               decoration: const InputDecoration(labelText: 'Title'),
@@ -113,7 +126,7 @@ class _NewExpenseState extends State<NewExpense> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(_date == null
-                            ? 'no selected date'
+                            ? 'no date'
                             : formatter.format(_date!)),
                         IconButton(
                           onPressed: _presentDatePicker,

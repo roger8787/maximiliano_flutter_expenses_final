@@ -19,7 +19,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     print(buckets);
     return Container(
-      color: Colors.pink,
+      // color: Colors.pink,
       height: 200,
       child: Text('expenses'),
     );
